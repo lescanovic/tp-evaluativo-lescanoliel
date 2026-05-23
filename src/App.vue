@@ -23,13 +23,11 @@ const filteredProducts = computed(() => {
 
 <template>
 
-  <!-- NAVBAR -->
   <Navbar />
 
-  <!-- CONTENIDO -->
   <main class="p-10 bg-gray-100 min-h-screen">
 
-    <!-- BUSCADOR -->
+    <!-- Buscador-->
     <div class="max-w-xl mx-auto mb-10">
 
       <SearchBar
@@ -39,7 +37,7 @@ const filteredProducts = computed(() => {
 
     </div>
 
-    <!-- PRODUCTOS -->
+    <!-- Lista de Productos -->
     <ProductList
       :products="filteredProducts"
     />

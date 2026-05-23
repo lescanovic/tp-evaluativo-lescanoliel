@@ -9,31 +9,29 @@ defineProps<{
 </script>
 
 <template>
-
   <div class="bg-white shadow-md rounded-xl p-5 w-64">
 
-    <!-- IMAGEN -->
-    <img :src="product.image"
+         <img :src="product.image"
          :alt="product.title"
          class="h-56 w-full object-cover rounded-md"
     />
 
-    <!-- TITULO -->
+    <!-- titulo -->
     <h2 class="font-bold text-xl mt-4">
       {{ product.title }}
     </h2>
 
-    <!-- DESCRIPCION -->
+    <!-- Descripción -->
     <p class="text-gray-500">
       {{ product.description }}
     </p>
 
-    <!-- PRECIO -->
+    <!-- Precio -->
     <p class="text-2xl font-bold mt-2">
       ${{ product.price }}
     </p>
 
-    <!-- BOTON -->
+    <!-- Boton -->
     <button
       class="bg-cyan-400 text-white px-4 py-2 rounded-full mt-4 w-full"
     >
