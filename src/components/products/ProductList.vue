@@ -13,11 +13,12 @@ defineProps<{
 
   <div class="flex gap-10 flex-wrap justify-center">
 
-    <ProductCard
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
+ <ProductCard
+  v-for="product in products"
+  :key="product.id"
+  :product="product"
+
+/>
 
   </div>
 

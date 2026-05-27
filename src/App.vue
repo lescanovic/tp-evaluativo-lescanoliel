@@ -11,7 +11,7 @@ const filteredProducts = computed(() => {
 
   return products.filter(product =>
 
-    product.title
+    product.name
       .toLowerCase()
       .includes(search.value.toLowerCase())
 
