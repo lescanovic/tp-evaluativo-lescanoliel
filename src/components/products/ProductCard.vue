@@ -1,14 +1,20 @@
 <script setup lang="ts">
-
 import type { Product } from "@/models/Product"
-
-defineProps<{
+const props = defineProps<{
   product: Product
 }>()
-// Define the event that will be emitted when the "Add to Cart" button is clicked
+
 const emit = defineEmits<{
   (e:"add-to-cart", product:Product): void
 }>()
+
+const addProduct = () => {
+
+  console.log("CLICK")
+
+  emit("add-to-cart", props.product)
+
+}
 
 
 </script>
@@ -39,7 +45,7 @@ const emit = defineEmits<{
   </p>
 
   <button
-    @click="emit('add-to-cart', product)"
+    @click="addProduct"
     class="bg-cyan-400 text-white px-4 py-2 rounded-full mt-4 w-full hover:bg-cyan-600"
   >
     Agregar al carrito
