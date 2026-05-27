@@ -6,7 +6,9 @@ import type { Product } from "@/models/Product"
 defineProps<{
   products: Product[]
 }>()
-
+const emit = defineEmits<{
+  (e:"add-to-cart", product:Product): void
+}>()
 </script>
 
 <template>
@@ -17,7 +19,7 @@ defineProps<{
   v-for="product in products"
   :key="product.id"
   :product="product"
-
+  @add-to-cart="emit('add-to-cart', $event)"
 />
 
   </div>
