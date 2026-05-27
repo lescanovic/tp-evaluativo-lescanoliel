@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Product } from "@/models/Product"
+import type { Product } from "@/models/product"
 const props = defineProps<{
   product: Product
 }>()
 
-const emit = defineEmits<{
+const emit = defineEmits<{   
   (e:"add-to-cart", product:Product): void
 }>()
 
