@@ -27,7 +27,7 @@ const filteredProducts = computed(() => {
 
   <main class="p-10 bg-gray-100 min-h-screen">
 
-    <!-- Buscador-->
+    <!-- Search bar -->
     <div class="max-w-xl mx-auto mb-10">
 
       <SearchBar
@@ -37,7 +37,7 @@ const filteredProducts = computed(() => {
 
     </div>
 
-    <!-- Lista de Productos -->
+    <!-- Product List -->
     <ProductList
       :products="filteredProducts"
     />
