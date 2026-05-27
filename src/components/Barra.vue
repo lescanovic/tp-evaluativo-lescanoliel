@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { RouterLink } from "vue-router"
 </script>
 
 <template>
@@ -19,16 +20,18 @@
             Carrito
         </RouterLink>
 
-        <RouterLink to="/users">
-            Usuarios
-        </RouterLink>
 
     </div>
 
     <div class="flex gap-5 text-3xl text-black">
-
-        <i class="bi bi-person-fill"></i>
-        <i class="bi bi-cart-fill"></i>
+  <RouterLink to="/users">
+         <i class="bi bi-person-fill"></i>
+        </RouterLink>
+        
+            <RouterLink to="/cart">
+               <i class="bi bi-cart-fill"></i>
+        </RouterLink>
+ 
 
     </div>
 

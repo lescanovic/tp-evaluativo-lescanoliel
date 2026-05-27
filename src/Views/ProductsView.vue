@@ -37,7 +37,7 @@ const addToCart = (product: Product) => {
         if(item.quantity >= product.stock){
 
             alert(
-                `Solo quedan ${product.stock} unidades`
+                `No hay suficiente stock para agregar más de ${product.name} al carrito.`
             )
 
             return

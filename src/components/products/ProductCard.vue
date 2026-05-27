@@ -13,7 +13,7 @@ const addProduct = () => {
   console.log("CLICK")
 
   emit("add-to-cart", props.product)
-
+  alert("Producto agregado al carrito")
 }
 
 
@@ -46,9 +46,12 @@ const addProduct = () => {
 
   <button
     @click="addProduct"
+    
     class="bg-cyan-400 text-white px-4 py-2 rounded-full mt-4 w-full hover:bg-cyan-600"
+  
   >
     Agregar al carrito
+    
   </button>
 
   </div>

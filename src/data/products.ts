@@ -9,7 +9,7 @@ export const products: Product[] = [
     price: 2000,
     image: "https://i.pinimg.com/736x/a0/fc/1a/a0fc1aae9df47e1930247e33577a154a.jpg",
     discount: 0,
-    stock: 10
+    stock: 3
 
   },
   {
