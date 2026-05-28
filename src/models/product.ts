@@ -1,9 +1,11 @@
 export interface Product {
     image: string | undefined;
-    id: number | string;
+    id: number ;
     name: string;
     price: number;
     description: string;
     discount: number;
     stock: number;
+    talles: string;
+
 }

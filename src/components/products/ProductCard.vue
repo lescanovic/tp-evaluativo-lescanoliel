@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Product } from "@/models/product"
+import type { Product } from "@/models/Product"
 const props = defineProps<{
   product: Product
 }>()
@@ -13,7 +13,7 @@ const addProduct = () => {
   console.log("CLICK")
 
   emit("add-to-cart", props.product)
-
+  alert("Producto agregado al carrito")
 }
 
 
@@ -44,11 +44,18 @@ const addProduct = () => {
     Stock: {{ product.stock }}
   </p>
 
+  <p>
+    Talle: {{ product.talles }}
+  </p>
+
   <button
     @click="addProduct"
+    
     class="bg-cyan-400 text-white px-4 py-2 rounded-full mt-4 w-full hover:bg-cyan-600"
+  
   >
     Agregar al carrito
+    
   </button>
 
   </div>

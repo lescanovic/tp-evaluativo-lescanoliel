@@ -9,7 +9,8 @@ export const products: Product[] = [
     price: 2000,
     image: "https://i.pinimg.com/736x/a0/fc/1a/a0fc1aae9df47e1930247e33577a154a.jpg",
     discount: 0,
-    stock: 10
+    stock: 3,
+    talles: "S",
 
   },
   {
@@ -19,7 +20,8 @@ export const products: Product[] = [
     price: 5000,
     image: "https://i.pinimg.com/736x/a0/fc/1a/a0fc1aae9df47e1930247e33577a154a.jpg",
     discount: 0,
-    stock: 10
+    stock: 10,
+    talles: "M",
   },
 
   {
@@ -29,7 +31,8 @@ export const products: Product[] = [
     price: 3500,
     image: "https://i.pinimg.com/736x/a0/fc/1a/a0fc1aae9df47e1930247e33577a154a.jpg",
     discount: 0,
-    stock: 10
+    stock: 10,
+    talles: "L",
   },
    {
     id: 4,
@@ -38,7 +41,8 @@ export const products: Product[] = [
     price: 3500,
     image: "https://i.pinimg.com/736x/a0/fc/1a/a0fc1aae9df47e1930247e33577a154a.jpg",
     discount: 0,
-    stock: 10
+    stock: 10,
+    talles: "XL"
   }
 
 ]

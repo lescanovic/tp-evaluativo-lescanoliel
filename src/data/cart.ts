@@ -1,5 +1,5 @@
 import { ref } from "vue"
 
-import type { CartItem } from "@/models/CarItem"
+import type { CartItem } from "@/models/carItem"
 
-export const cart = ref<CartItem[]>([])
+export const cart = ref<CartItem[]>([]) 
