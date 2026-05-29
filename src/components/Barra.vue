@@ -4,8 +4,13 @@ import { RouterLink } from "vue-router"
 
 <template>
 
+<<<<<<< HEAD
 <nav class="bg-white p-4 flex justify-between items-center">
 
+=======
+  <nav class="bg-gray-200 p-4 flex justify-between items-center">
+    
+>>>>>>> 51fdc77ceaadd70609217c4e571deb1ef38cf48b
     <div class="flex gap-10">
 
         <RouterLink to="/">
@@ -16,7 +21,11 @@ import { RouterLink } from "vue-router"
             Productos
         </RouterLink>
 
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> 51fdc77ceaadd70609217c4e571deb1ef38cf48b
 
     </div>
 

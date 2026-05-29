@@ -18,7 +18,8 @@ export const products: Product[] = [
     price: 2000,
     image: imagen,
     discount: 0,
-    stock: 3
+    stock: 3,
+  
 
   },
   {
@@ -28,7 +29,8 @@ export const products: Product[] = [
     price: 5000,
     image: imagen5,
     discount: 0,
-    stock: 10
+    stock: 10,
+    
   },
 
   {
@@ -38,7 +40,8 @@ export const products: Product[] = [
     price: 3500,
     image: imagen3,
     discount: 0,
-    stock: 10
+    stock: 10,
+  
   },
    {
     id: 4,
@@ -57,7 +60,7 @@ export const products: Product[] = [
     image: imagen6,
     discount: 0,
     stock: 7
-  } ,
+  } ,   
 
      {
     id: 6,
@@ -67,6 +70,8 @@ export const products: Product[] = [
     image: imagen7,
     discount: 0,
     stock: 4
+  
+
   }
 
 
