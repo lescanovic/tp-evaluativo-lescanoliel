@@ -1,93 +1,179 @@
 
 <script setup lang="ts">
-
 import { cart } from "@/data/cart"
 
-
-//delete product from cart
-
-const deleteProduct = (id: number) => { //i got the id of the product that a i want to delete
-  const index = cart.value.findIndex( //find the index of the product in the cart
-    (item: any) => item.product.id === id //i compare the id of the product with the id that i want to delete
+// Delete product
+const deleteProduct = (id: number) => { //find the producto usign the id
+  const index = cart.value.findIndex( //inside the const, use value to access to the cart and find the index of the product using the id
+    (item: any) => item.product.id === id //item: any parameter for the findIndex function
   )
 
-  if (index !== -1) {
-    cart.value.splice(index, 1)
+  if (index !== -1) {  //if the product is found, return the index, if not, return -1
+    cart.value.splice(index, 1) //if the index is different from -1, use splice to remove the product from the cart 
+    //"index,1" means that we want remove one element starting from the index
   }
 }
 
+// Total
+const total = () => { //constant for the total price
+  return cart.value.reduce( //access to the cart using value and reduce the cart
+    (acc: number, item: any) => //acc: nunber parameter for the accumulator, item: any parameter for the current item
+      acc + item.product.price * item.quantity, //return the accumulator plus the price of the product multiplied by the quantity
+    0
+  )
+}
+
+// Discount 10%
+const discount = () => { //calculate the discount, in this case, 10% of the total price
+  return total() * 0.1 //multiply the total price by 0.1 to get the discount amount
+}
+
+// Final price
+const finalPrice = () => {
+  return total() - discount() //remove the discount from the total price to get the final price
+}
+
+//Add quantity function, for the plus button
+const addQuantity = (id: number) => {  //find the product using the id
+  const product = cart.value.find( //inside a constant, use value to access to the cart and find the product using the id
+    (item: any) => item.product.id === id //if the product is found, return it, if not, return undefined
+  )
+
+  if (product) { //if the product is found, add 1 to the quantity
+    product.quantity++
+    if (product.quantity > product.product.stock) { //if the quantity is greater than the stock, set the quantity to the stock and show an alert
+      alert(
+        `No hay suficiente stock para agregar más de ${product.product.name} al carrito.`
+      )
+    }
+  }
+}
+
+//this is the same function that the plus one, only changes the operator to minus and the alert message 
+const removeQuatity = (id:number) => {
+const product = cart.value.find(
+    (item: any) => item.product.id === id
+)
+if (product) {
+  product.quantity--
+  if (product.quantity < 1) { //if the quantity is less than 1, delete the product from the cart.
+    deleteProduct(id)
+  }
+}
+}
 </script>
 
 <template>
+  <div class="min-h-screen bg-gray-100 p-8">
 
-<main class="p-10 bg-blue-50 min-h-screen">
+    <div class="max-w-5xl mx-auto bg-white p-8 rounded-2xl shadow">
 
-    <h1 class="text-4xl font-bold mb-8 text-blue-900">
-        Carrito
-    </h1>
+      <!-- Title -->
+      <h1 class="text-3xl font-bold text-center mb-8">
+        Carrito de Compras
+      </h1>
 
-    <div
-        v-for="item in cart"
+      <!-- Header -->
+      <div
+        class="grid grid-cols-4 bg-gray-100 p-4 rounded-xl text-gray-600 font-semibold mb-5"
+      >
+        <p>Producto</p>
+        <p class="text-center">Cantidad</p>
+        <p class="text-center">Precio</p>
+        <p class="text-center">Eliminar</p>
+      </div>
+
+      <!-- Products -->
+      <div
+        v-for="item in cart" 
         :key="item.product.id"
-        class="bg-blue-100 border border-blue-200 p-5 rounded-xl mb-5 shadow-sm"
-    >
+        class="grid grid-cols-4 items-center border-b border-gray-200 py-5"
+      > <!--I go through all the items in the shopping cart for each product added, the div is repeated.-->
 
-        <h2 class="text-2xl font-semibold text-blue-900 mb-2">
-            {{ item.product.name }}
-        </h2>
+        <!-- Product -->
+        <div class="flex items-center gap-4">
 
-        <p class="text-blue-700">
-            Cantidad:
-            <span class="font-medium">
-                {{ item.quantity }}
-            </span>
+          <img
+            :src="item.product.image"
+            alt=""
+            class="w-20 h-20 object-cover rounded-xl bg-gray-100"
+          /> <!--Show the product image-->
+
+          <div>
+            <h2 class="font-semibold text-lg">
+              {{ item.product.name }}
+            </h2> <!--Show the product name-->
+
+            <p class="text-gray-500 text-sm">
+              Stock: {{ item.product.stock }}
+            </p> <!--Show the product stock, to know how many products are available-->
+          </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="flex justify-center items-center gap-4">
+
+          <!-- Using the remove quantity function -->
+          <i @click="removeQuatity(item.product.id)" 
+          class="bi bi-dash cursor-pointer text-gray-600"></i>
+
+          <span
+            class="bg-gray-100 w-9 h-9 rounded-full flex items-center justify-center"
+          ><!-- Show the quantity -->
+            {{ item.quantity }}
+          </span>
+
+            <!-- Using the add quantity function -->
+          <i @click="addQuantity(item.product.id)" class="bi bi-plus cursor-pointer text-gray-600"></i>
+        </div>
+
+        <!-- Price -->
+        <p class="text-center font-semibold">
+          ${{ item.product.price }}
         </p>
 
-        <p class="text-blue-700 mt-1">
-            Precio:
-            <span class="font-medium">
-                ${{ item.product.price }}
-            </span>
-        </p>
+        <!-- Using the delete product function -->
+        <div class="flex justify-center">
+          <i
+            class="bi bi-trash text-red-500 cursor-pointer hover:text-red-700"
+            @click="deleteProduct(item.product.id)"
+          ></i>
+        </div>
+      </div>
 
-  <i
-              class="bi bi-trash text-red-500 cursor-pointer hover:text-red-700"
-              @click="deleteProduct(item.product.id)"
-            ></i>
+      <!-- Totals -->
+      <div class="grid grid-cols-3 gap-4 mt-8">
 
-            
-<i class="bi bi-plus text-indigo-700 cursor-pointer hover:text-indigo-900"></i>
-<i class="bi bi-dash text-red-500 cursor-pointer hover:text-red-700"></i>
+        <div class="bg-gray-100 p-5 rounded-xl">
+          <p class="text-gray-500 mb-2">Total</p>
+
+          <p class="text-2xl font-bold">
+            <!-- Show the total price -->
+            ${{ total() }}
+          </p>
+        </div>
+
+        <div class="bg-gray-100 p-5 rounded-xl">
+          <p class="text-gray-500 mb-2">Descuento 10%</p>
+
+          <p class="text-2xl font-bold text-green-600">
+            <!-- Show the discount amount -->
+            -${{ discount() }}
+          </p>
+        </div>
+
+        <div class="bg-gray-600 p-5 rounded-xl text-white">
+          <p class="mb-2">Precio Final</p>
+          <!-- Show the final price -->
+          <p class="text-2xl font-bold">
+            ${{ finalPrice() }}
+          </p>
+        </div>
+      </div>
+
+   
+
     </div>
-
-    <!-- Total price, discount and final price -->
-    <div class="bg-blue-200 p-6 rounded-xl shadow-sm mt-8">
-
-        <p class="text-lg text-blue-900 mb-2">
-            Total:
-            <span class="font-bold">
-                <!-- calculo el precio total sumando los precios de cada producto multiplicados por la cantidad -->
-                ${{ cart.reduce((total, item) => total + item.product.price * item.quantity, 0) }}
-            </span>
-        </p>
-
-        <p class="text-lg text-blue-900 mb-2">
-            Descuento:
-            <span class="font-bold">
-                <!-- Calculo descuento al total del precio, multiplicando por 0.1 (10%) -->
-                ${{ cart.reduce((total, item) => total + item.product.price * item.quantity, 0) * 0.1 }}
-            </span>
-        </p>
-
-        <p class="text-2xl font-bold text-blue-950 mt-4">
-            <!-- Calculo el precio final restando el descuento al total -->
-            Precio final:
-            ${{ cart.reduce((total, item) => total + item.product.price * item.quantity, 0) - (cart.reduce((total, item) => total + item.product.price * item.quantity, 0) * 0.1) }}
-        </p>
-
-    </div>
-
-</main>
-
+  </div>
 </template>
-```
+

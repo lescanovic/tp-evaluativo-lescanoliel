@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router"
 
 <template>
 
-<nav class="bg-gray-200 p-4 flex justify-between items-center">
+<nav class="bg-white p-4 flex justify-between items-center">
 
     <div class="flex gap-10">
 
@@ -16,16 +16,13 @@ import { RouterLink } from "vue-router"
             Productos
         </RouterLink>
 
-        <RouterLink to="/cart">
-            Carrito
-        </RouterLink>
-
+       
 
     </div>
 
     <div class="flex gap-5 text-3xl text-black">
   <RouterLink to="/users">
-         <i class="bi bi-person-fill"></i>
+         <i class="bi bi-person-circle text-4xl text-black"></i>
         </RouterLink>
         
             <RouterLink to="/cart">
