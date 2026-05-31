@@ -4,6 +4,8 @@ import ProductsView from "@/Views/ProductsView.vue"
 import CartView from "@/Views/CartView.vue"
 import UsersView from "@/Views/UsersView.vue"
 
+import UserDetailView from "@/Views/UserDetailView.vue"
+import UserEditView from "@/Views/UserEditView.vue"
 const routes = [
 
   {
@@ -24,7 +26,17 @@ const routes = [
   {
     path: "/users",
     component: UsersView
-  }
+  },
+
+  {
+    path: "/users/:id",
+    component: UserDetailView
+  },
+
+  {
+    path: "/users/:id/edit",
+    component: UserEditView
+  },
 
 ]
 

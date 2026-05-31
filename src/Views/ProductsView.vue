@@ -1,19 +1,13 @@
 <script setup lang="ts">
 
 import { computed, ref } from 'vue'
-
 import SearchBar from '@/components/products/SearchBar.vue'
 import ProductList from '@/components/products/ProductList.vue'
 import { cart } from "@/data/cart"
 import { products } from '@/data/products'
-
-
-
 import type { Product } from '@/models/Product'
 
 const search = ref("")
-
-
 
 const filteredProducts = computed(() => {
 
