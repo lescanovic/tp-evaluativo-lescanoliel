@@ -1,22 +1,16 @@
 <script setup lang="ts">
 
 import { computed, ref } from 'vue'
-
 import SearchBar from '@/components/products/SearchBar.vue'
 import ProductList from '@/components/products/ProductList.vue'
 import { cart } from "@/data/cart"
 import { products } from '@/data/products'
-
-
-
 import type { Product } from '@/models/Product'
 
 const search = ref("") //search is a reactive variable that will store 
 // the value of the search input, it is initialized as an empty string.
 
-
-
-const filteredProducts = computed(() => { //Create a list that updates itself .
+const filteredProducts = computed(() => {
 
     return products.filter(product => //Browse all the products.
         product.name //Access the name of the product 
