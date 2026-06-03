@@ -5,7 +5,7 @@ import SearchBar from '@/components/products/SearchBar.vue'
 import ProductList from '@/components/products/ProductList.vue'
 import { cart } from "@/data/cart"
 import { products } from '@/data/products'
-import type { Product } from '@/models/Product'
+import type { Product } from '@/models/product'
 
 const search = ref("") //search is a reactive variable that will store 
 // the value of the search input, it is initialized as an empty string.

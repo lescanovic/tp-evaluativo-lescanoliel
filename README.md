@@ -1,42 +1,79 @@
 # tp-evaluativo-lescanoliel
 
-This template should help get you started developing with Vue 3 in Vite.
+Desarrollamos una aplicación web SPA funcional y responsiva, se basa en una Tienda Online que Esta aplicación fue desarrollada utilizando Vue 3, TypeScript y Tailwind CSS. Su objetivo es simular una pequeña tienda online donde se pueden visualizar productos, buscar artículos, gestionar usuarios y administrar un carrito de compras.
 
-## Recommended IDE Setup
+El proyecto está basado en una arquitectura de componentes reutilizables, aplicando conceptos fundamentales de Vue como Props, Emits, reactividad, componentes padre-hijo, directivas y manejo de estado compartido.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+# Funcionalidades Principales 
 
-## Recommended Browser Setup
+GESTIÓN DE PRODUCTO 
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Visualización de productos mediante tarjetas.
+- Información detallada de cada producto:
+- Nombre
+- Descripción
+- Precio
+- Stock disponible
+- Imagen
+- Búsqueda dinámica de productos.
+- Agregado de productos al carrito.
 
-## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+GESTIÓN DE USUARIO
 
-## Customize configuration
+- Creación de nuevos usuarios 
+- Listtado de usuarios registrados
+- Eliminacion de usuarios
+- Navegació hacia vistas de detalle y edicion mediante Vue Router
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+CARRITO DE COMPRAS 
 
-## Project Setup
+- Almacenamiento de productos seleccionados
+- Manejo reactivo madiante Compisition API 
+- Actualización automatica de la interfaz cuando cambia el contenido del carrito
 
-```sh
-npm install
-```
+--------------------------------------------------------------------------
 
-### Compile and Hot-Reload for Development
+# ESTRUCTURA GENERAL
 
-```sh
-npm run dev
-```
+      # Models
+Cada interfaz cuenta con sus atributos y su tipo de datos 
+---- Product
+---- User
+---- CartIem 
 
-### Type-Check, Compile and Minify for Production
+      # Data 
+Simulan una base de datos
+---- products.ts
+---- users.ts
+---- cart.ts
 
-```sh
-npm run build
-```
+--------------------------------------------------------------------------
+
+# FLUJO DE FUNCIONAMIENTO
+
+1. La aplicación se inicia desde main.ts.
+2. Vue monta App.vue.
+3. App.vue muestra la barra de navegación y el contenido correspondiente mediante RouterView.
+4. Los productos se cargan desde products.ts.
+5. ProductList genera una tarjeta por cada producto.
+6. ProductCard muestra la información y permite agregar productos al carrito.
+7. SearchBar permite filtrar los productos visibles.
+8. UserForm permite crear nuevos usuarios.
+9. UserList muestra los usuarios registrados.
+10. UserCard permite eliminarlos o navegar hacia sus vistas de detalle y edición.
+
+
+--------------------------------------------------------------------------
+ # CONCEPTOS DE VUE APLICADOS 
+ Composition API.
+ Props.
+ Emits.
+ Reactive State.
+ Ref.
+ Directivas Vue 'v-for' 'v-model' 'v-bind' 'v-on'.
+ Componentes reutilizables.
+ Comunicación Padre → Hijo.
+ Comunicación Hijo → Padre.
+ Vue Router.
+ TypeScript.

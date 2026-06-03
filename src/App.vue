@@ -7,5 +7,5 @@ import Barra from "@/components/Barra.vue"
 <Barra />
 
 <RouterView />
-
+ 
 </template>
